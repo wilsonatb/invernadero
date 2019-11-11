@@ -1,0 +1,101 @@
+body{
+    background-image: url(../img/pimenton.jpg);
+    color: white;
+}
+
+section{
+    margin: 0;
+}
+
+section h1{
+    margin: .8em;
+}
+
+.logo-home{
+    position: absolute;
+    max-width: 70px;
+    width: 100%;
+    /* max-height: 30px;
+    height: 100%; */
+    text-align: center;
+}
+
+#menu{
+    background-color: rgb(50, 51, 48);
+    padding: 8px;
+    /* margin: 0; */
+}
+
+#menu ul li{
+    display: inline-block;
+    margin-left: 16.5em;
+    transition: 0.5s;
+}
+
+#menu ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+#menu ul li:HOVER{
+    transform: translate(10px, 10px);
+}
+
+.box-opcion{
+    margin: 0.5em;
+}
+
+.grid-submenu{
+    display: grid;
+    margin: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+
+.grid-submenu p{
+    margin: 0;
+}
+
+/* .grid-submenu span{
+    font-weight: bold;
+    font-size: 1.5em;
+} */
+
+/* .grid-submenu a{
+    font-weight: bold;
+    font-size: 1em;
+} */
+
+.grid-submenu form{
+    background-color: rgb(50, 51, 48);
+    border-radius: 20px;
+    padding-left: 1em;
+}
+
+.grid-submenu .box-opcion{
+    border-radius: 20px;
+}
+
+#container1, #container2, #container3{
+    background-color:  rgb(50, 51, 48);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.grid-chart{
+    display: grid;
+    margin: 10px;
+    margin-top: 100px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+#container1, #container2, #container3{
+    min-width: 310px;
+    width: 96%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}

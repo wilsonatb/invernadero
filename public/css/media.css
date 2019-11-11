@@ -1,0 +1,61 @@
+/* Por debajo de 700px */
+@media screen and (max-width: 700px){
+
+    body{
+    font-size:12px;
+    }
+
+}
+
+
+/* Por debajo de 400px */
+@media screen and (max-width: 420px){
+
+    body{
+    font-size:10px;
+    }
+
+}
+
+/* Para pantalla de 1024x467 canaimas */
+@media screen and (max-width: 1024px), (max-height: 467px){
+
+    body{
+        font-size:10px;
+        }
+
+    ul{
+        margin: 0;
+        padding: 0;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    #main-container #main-section #menu ul li{
+        margin: 10px 10px;
+        height: 100px;
+        max-width: 270px;
+        width: 90%;
+        overflow: hidden;
+    
+        transition: all 1s; 
+    }
+
+    .logo-home{
+        position: absolute;
+        max-width: 40px;
+        width: 100%;
+        /* max-height: 30px;
+        height: 100%; */
+        text-align: center;
+    }
+
+    .grid-chart{
+        display: grid;
+        margin: 10px;
+        margin-top: 0;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+    
+}

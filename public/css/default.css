@@ -1,0 +1,158 @@
+body{
+    margin: 0;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-position: center center;
+    height: auto;
+    min-height: 100vh;
+    background-size: cover;
+    
+}
+
+/* #main #main-container #main-section{
+    width: 30%;
+    margin: 10em 27em;
+}
+
+#main #main-container #main-section .center{    
+    color: red;
+    text-align: center;
+} */
+
+
+.btn{
+    border-radius: 40px;
+    border: solid 1em;
+    padding: .6em 1.5em;
+    color: white;
+    text-decoration: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.btn-verde{
+    background-color: #107920;
+    border-color: rgba(16, 148, 36, 0.5);
+    transition: background-color 1s;
+}
+
+.btn-verde:HOVER{
+    background-color: #36D94F;
+}
+
+*{
+    font-family: 'Playfair Display SC', serif, Arial, Helvetica, sans-serif;
+}
+
+h2{
+    font-family: 'Kaushan Script', cursive, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+}
+
+.header{
+    position: absolute;
+    right: 0;
+    margin: 1em 0.1em;
+    padding: 1em 0.1em;
+}
+
+.header a{
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.logo{
+    max-width: 13em;
+    width: 100%;
+    max-height: 12em;
+    height: 100%;
+    text-align: center;
+}
+
+.logo img{
+    width: 100%;
+    height: auto;
+}
+
+.footer{  
+    background-color: rgb(61, 59, 59);
+    padding: 10px;
+    margin-top: auto;
+    text-align: center;
+    color: white;
+}
+
+.boton__submit{
+    border-radius: 30px;
+    border: solid 0.5em rgb(61, 59, 59);
+    padding: .4em 1em;
+    background-color: rgb(71, 71, 71);
+    color: white;
+    transition: 1s;   
+}
+
+.boton__submit:HOVER{
+    background-color: #36D94F;
+}
+
+/* *{
+    padding: 0;
+    margin: 0;
+} */
+
+/* body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* input{
+    text-align: center;
+}
+
+.formulario{
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #666666;
+    width: 500px;
+}
+
+#header{
+    background-color: black;
+    padding: 10px;
+}
+
+#header ul li{
+    list-style: none;
+    display: inline;
+    padding: 10px;
+} */
+
+/* #header ul li a{
+    color:white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+#footer{
+    background-color: rgb(214, 214, 214);
+    padding: 20px;
+    margin-top: auto;
+}
+ */
+
+
+ 
+
+/* .center{
+    text-align: center;
+}
+
+.error{
+    color: #ac2323;
+} */
