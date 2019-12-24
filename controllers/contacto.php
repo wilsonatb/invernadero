@@ -43,7 +43,7 @@ class Contacto extends Controller{
             $mail->Password   = 'wilpingpong';                               // SMTP password
             $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
             $mail->Port       = 587;                                    // TCP port to connect to
-
+/* hola */
             //Recipients
             $mail->setFrom('wilsonatb@gmail.com', 'Usuario');
             $mail->addAddress('wilsonatb@gmail.com');     // Add a recipient
