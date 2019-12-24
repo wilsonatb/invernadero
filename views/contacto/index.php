@@ -20,23 +20,23 @@
         <a href="<?php echo constant('URL'); ?>main"><img src="<?php echo constant('URL'); ?>public/img/logo-unexpo.png" alt=""></a>
     </div>
     <div class="container">  
-    <form id="contact" action="" method="post">
+    <form id="contact" action="<?php echo constant('URL'); ?>contacto/email" method="post">
         <h3>Contactanos!!</h3>
         
         <fieldset>
-        <input placeholder="Tu nombre" type="text" tabindex="1" required autofocus>
+        <input name="name" placeholder="Tu nombre" type="text" tabindex="1" required autofocus>
         </fieldset>
         <fieldset>
-        <input placeholder="Tu Email" type="email" tabindex="2" required>
+        <input name="email" placeholder="Tu Email" type="email" tabindex="2" required>
         </fieldset>
         <fieldset>
-        <input placeholder="Número telf (opcional)" type="tel" tabindex="3" required>
+        <input placeholder="Número telf (opcional)" type="tel" tabindex="3">
         </fieldset>
         <fieldset>
-        <input placeholder="Tu pagina Web (opcional)" type="url" tabindex="4" required>
+        <input placeholder="Tu pagina Web (opcional)" type="url" tabindex="4">
         </fieldset>
         <fieldset>
-        <textarea placeholder="Escribie tu mensaje aqui..." tabindex="5" required></textarea>
+        <textarea name="comment" placeholder="Escribie tu mensaje aqui..." tabindex="5" required></textarea>
         </fieldset>
         <fieldset>
         <button name="submit" type="submit" id="contact-submit" data-submit="...Enviando">Enviar</button>

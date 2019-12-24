@@ -11,7 +11,7 @@ class App
         $url = isset($_GET['url']) ? $_GET['url']: "main"; //obtengo la url y si no se coloca nada se redirige a main
         $url = rtrim($url, '/'); //quito los / que esten al inicio o al final
         $url = explode('/', $url); //separo en arrays el texto cuando encuentre un /
-        /* var_dump($url); */
+       /*  var_dump($url);  */
 
         $archivoController = 'controllers/' . $url[0] . '.php'; //indica que archivo de ocntrolador va a usar
 
