@@ -63,10 +63,11 @@ class Contacto extends Controller{
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
-            echo 'Mensaje Enviado';
-            $this->view->render('main/index');
+            $this->view->mensaje = 'Mensaje Enviado';
+            $this->view->render('contacto/index');
         } catch (Exception $e) {
-            echo "No se pudo enviar el mensaje: {$mail->ErrorInfo}";
+            $this->view->mensaje = "No se pudo enviar el mensaje";
+            $this->view->render('contacto/index');
         }
 
       }else

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/main.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/media.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/default.css">
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public\img\favicon.ico" >
+    <link rel="icon" type="image/gif" href="<?php echo constant('URL'); ?>public\img\animated_favicon1.gif" > 
 </head>
 <body>
 

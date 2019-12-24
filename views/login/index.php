@@ -6,7 +6,8 @@
     <title>Ingresar</title>
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/media.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/default.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo constant('URL'); ?>public/css/login.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo constant('URL'); ?>public/css/login.css">
+</head>
 <body>
     
     <header class="header">
