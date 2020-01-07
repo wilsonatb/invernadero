@@ -66,9 +66,9 @@
     
     <?php
         include 'libs/' . $this->graficas . '.php';
-        foreach ($this->promtemp as $temp) 
+        foreach ($this->promedios as $promedio) 
             {
-                $originalDate = $temp->dia;
+                $originalDate = $promedio->dia;
                 $newDate = date("d/m/Y", strtotime($originalDate));
                 echo $newDate . ',';
             }

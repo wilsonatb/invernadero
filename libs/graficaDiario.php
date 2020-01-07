@@ -31,9 +31,9 @@
         categories: [
             <?php
            
-                foreach ($this->promtemp as $temp) 
+                foreach ($this->promedios as $promedio) 
                 {
-                    $originalDate = $temp->dia;
+                    $originalDate = $promedio->dia;
                     $newDate = date("d/m/Y", strtotime($originalDate));
                     echo "'$newDate',";
                 }
@@ -46,9 +46,9 @@
         name: 'Temp(ºC)',
         data: [
             <?php
-            foreach ($this->promtemp as $temp) 
+            foreach ($this->promedios as $promedio) 
             {
-                echo  $temp->promedio . ',';
+                echo  $promedio->promedioTemp . ',';
             }
         
             ?>
@@ -97,12 +97,31 @@ xAxis: {
         title: {
             text: 'Días'
         },
-        categories: [1.1, 2, 3, 4, 5, 6, 7, 8]
+        categories: [
+            <?php
+           
+                foreach ($this->promedios as $promedio) 
+                {
+                    $originalDate = $promedio->dia;
+                    $newDate = date("d/m/Y", strtotime($originalDate));
+                    echo "'$newDate',";
+                }
+            
+            ?>
+        ]
     },
 
 series: [{
     name: 'HR(%)',
-    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+    data: [
+        <?php
+            foreach ($this->promedios as $promedio) 
+            {
+                echo  $promedio->promedioHR . ',';
+            }
+        
+            ?>
+    ]
 }],
 
 responsive: {

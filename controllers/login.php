@@ -65,10 +65,8 @@ class Login extends Controller{
             }
           }
           /* Peticion para saber los promedios y graficarlos */
-          $promtemp = $this->model->getPromedioDiarioTemp();
-          $this->view->promtemp = $promtemp;
-
-          
+          $promedios = $this->model->getPromedioDiario();
+          $this->view->promedios = $promedios;
           
           
 

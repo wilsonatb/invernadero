@@ -81,9 +81,9 @@ class LoginModel extends Model
 
     }
 
-    public function getPromedioDiarioTemp()
+    public function getPromedioDiario()
     {
-        $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';
+        $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_humed, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';
 
         $items = [];
 
@@ -95,7 +95,8 @@ class LoginModel extends Model
             {
                 $item = new AvgTempDiario();
                 $item->dia = $row['Dia'];
-                $item->promedio = $row['Promedio_Temp'];
+                $item->promedioTemp = $row['Promedio_Temp'];
+                $item->promedioHR = $row['Promedio_humed'];
                 $item->total = $row['total'];
 
                 array_push($items, $item);// ingresa nueva informacion al arreglo items
