@@ -58,16 +58,16 @@ class Login extends Controller{
                 case "3":               
                     $this->view->graficas = 'graficaMensual';
                     break;
-
-                case "4":               
-                    $this->view->graficas = 'graficaAnual';
-                    break;
   
                 default:
                     $this->view->graficas = 'graficaReal';
                     break;
             }
           }
+          /* Peticion para saber los promedios y graficarlos */
+          $promtemp = $this->model->getPromedioDiarioTemp();
+          $this->view->promtemp = $promtemp;
+          
           
 
           $selected = $this->model->getConfiguracion();
@@ -122,10 +122,7 @@ class Login extends Controller{
       }
     }
 
-    function visualizar()
-    {
-        
-    }
+    
 }
 
 

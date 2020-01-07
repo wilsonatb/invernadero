@@ -27,7 +27,7 @@
     <div id="menu">       
          <ul>
             <li><a href="<?php echo constant('URL'); ?>login/inicio">Inicio</a></li>
-            <li><a href="<?php echo constant('URL'); ?>consulta">Ayuda</a></li>
+            <li><a href="<?php echo constant('URL'); ?>admin">Administrador</a></li>
             <li><a href="<?php echo constant('URL'); ?>logout">Cerrar sesión</a></li>
         </ul>
     </div>
@@ -48,7 +48,6 @@
                 <option value="1">Tiempo Real</option>
                 <option value="2">Diario</option>
                 <option value="3">Mensual</option>
-                <option value="4">Anual</option>
             </select>
             <input type="submit" value="Seleccionar" class="boton__submit">
         </form>
@@ -67,6 +66,13 @@
     
     <?php
         include 'libs/' . $this->graficas . '.php';
+        foreach ($this->promtemp as $temp) 
+            {
+                $originalDate = $temp->dia;
+                $newDate = date("d/m/Y", strtotime($originalDate));
+                print $newDate . ',';
+            }
+        
     ?>
 
     <script src="<?php echo constant('URL'); ?>public\js\jquery-1.8.0.min.js"></script>

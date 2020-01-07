@@ -1,6 +1,7 @@
 <?php
 
 /* include_once 'database.php'; */
+include_once 'models/avgtempdiario.php';
 
 class LoginModel extends Model
 {
@@ -14,12 +15,18 @@ class LoginModel extends Model
         $query = $this->db->connect()->prepare('SELECT * FROM usuarios WHERE username = :user AND password = :pass');
         $query->execute(['user' => $user, 'pass' => $md5pass]);
 
-        if($query->rowCount()) //si encuentra una fila entonces existe usuario
+        $row = $query->fetch(PDO::FETCH_NUM);
+
+        if($row == true) //si encuentra una fila entonces existe usuario
         {
+            $rol = $row[1];
+            $_SESSION['rol'] = $rol;
             return true;
         }else {
             return false;
         }
+
+
     }
 
     public function setUser($user)
@@ -72,6 +79,35 @@ class LoginModel extends Model
 
         return $valor_deseado;
 
+    }
+
+    public function getPromedioDiarioTemp()
+    {
+        $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';
+
+        $items = [];
+
+        try 
+        {
+            $query = $this->db->connect()->query($sql);
+
+            while($row = $query->fetch())
+            {
+                $item = new AvgTempDiario();
+                $item->dia = $row['Dia'];
+                $item->promedio = $row['Promedio_Temp'];
+                $item->total = $row['total'];
+
+                array_push($items, $item);// ingresa nueva informacion al arreglo items
+            }
+            
+            /* echo '<pre>'; var_dump($items); echo '</pre>'; */
+            return $items;
+        } 
+        catch (PDOException $e) 
+        {
+            return [];
+        }
     }
 }
 

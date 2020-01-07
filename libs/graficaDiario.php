@@ -22,17 +22,35 @@
         align: 'right',
         verticalAlign: 'middle'
     },
-
+    
     xAxis: {
         title: {
             text: 'Días'
         },
-        categories: [1, 2, 3, 4, 5, 6, 7, 8]
+        categories: [
+            <?php
+            foreach ($this->promtemp as $temp) 
+            {
+                $originalDate = $temp->dia;
+                $newDate = date("d/m/Y", strtotime($originalDate));
+                echo $newDate . ',';
+            }
+        
+            ?>
+        ]
     },
 
     series: [{
         name: 'Temp(ºC)',
-        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+        data: [
+            <?php
+            foreach ($this->promtemp as $temp) 
+            {
+                echo  $temp->promedio . ',';
+            }
+        
+            ?>
+        ]
     }],
 
     responsive: {

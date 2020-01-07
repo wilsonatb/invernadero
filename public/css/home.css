@@ -21,7 +21,7 @@ section h1{
 }
 
 #menu{
-    background-color: rgb(50, 51, 48);
+    background-color: rgba(50, 51, 48, 0.973);
     padding: 8px;
     /* margin: 0; */
 }
@@ -35,6 +35,8 @@ section h1{
 #menu ul li a{
     text-decoration: none;
     color: white;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #menu ul li:HOVER{

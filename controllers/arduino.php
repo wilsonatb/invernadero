@@ -2,12 +2,12 @@
 //clase Main que es una hija de controller
 class Arduino extends Controller
 {
-    function __construct()
-    {
-      parent::__construct();//se manda a llamar al ducnon construct de la clase padre controller
-      /* $this->view->mensaje = ""; */
-      /* echo "<p>Nuevo controlador main</p>"; */
-    }
+  function __construct()
+  {
+    parent::__construct();//se manda a llamar al ducnon construct de la clase padre controller
+    /* echo "<p>Nuevo controlador main</p>"; */
+    $this->view->promtemp = [];
+  }
 
 //Este metodo es el encargado de recibir los datos desde el arduino, recibie con un GET y ejecuta las metodos definidos en arduinomodel.php de esta manera se peude recibir y enviar al mismo tiempo sin afetar al resto de la aplicacion Web
     function recibirArduino()
@@ -38,6 +38,14 @@ class Arduino extends Controller
     function datosGraficarAire()
     {
       $this->model->getHumd();
+    }
+
+    function promTempDiario()
+    {
+      /* $this->model->getPromedioDiarioTemp(); */
+      $promtemp = $this->model->getPromedioDiarioTemp();
+      $this->view->alumnos = $promtemp;
+      $this->view->render('home/index');
     }
 
 }

@@ -1,13 +1,11 @@
 <?php
 //Aca hacemos toda la conexion del arduino con la aplicacion Web, estan definidos los metodos para setear los parametros, enviar a la db y extraer de la db
 
+
 class ArduinoModel extends Model
 {
 
-    /* public function __construct()
-    {
-        parent::__construct();
-    } */
+   
 
     /* private $totalVotes;//conteo de numero de votos */
     private $temperatura;
@@ -86,8 +84,38 @@ class ArduinoModel extends Model
         $query = $this->db->connect()->query('SELECT `valor1` FROM `configuracion` WHERE id = ' . $id_maximo);
         $valor_deseado2 = $this->valor1 = $query->fetch(PDO::FETCH_OBJ)->valor1;
 
+
         echo $valor_deseado . '*' . $valor_deseado2 . '*';
     }
+
+    /* public function getPromedioDiarioTemp()
+    {
+        $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';
+
+        $items = [];
+
+        try 
+        {
+            $query = $this->db->connect()->query($sql);
+
+            while($row = $query->fetch())
+            {
+                $item = new AvgTempDiario();
+                $item->dia = $row['Dia'];
+                $item->promedio = $row['Promedio_Temp'];
+                $item->total = $row['total'];
+
+                array_push($items, $item);// ingresa nueva informacion al arreglo items
+            }
+            
+            echo '<pre>'; var_dump($items); echo '</pre>';
+            return $items;
+        } 
+        catch (PDOException $e) 
+        {
+            return [];
+        }
+    } */
 
 
     public function getTotal($parametro, $fechaInicio, $fechaFin)
@@ -97,9 +125,6 @@ class ArduinoModel extends Model
         return $this->totalVotes;
     }   
 
-    public function getPercentage($votes)
-    {
-        return round(($votes / $this->totalVotes) * 100, 0);
-    }
+    
 }
  ?>
