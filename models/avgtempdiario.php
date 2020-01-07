@@ -3,7 +3,8 @@
 class AvgTempDiario
 {
     public $dia;
-    public $promedio;
+    public $promedioTemp;
+    public $promedioHR;
     public $total;
 }
 

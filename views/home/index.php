@@ -70,7 +70,7 @@
             {
                 $originalDate = $temp->dia;
                 $newDate = date("d/m/Y", strtotime($originalDate));
-                print $newDate . ',';
+                echo $newDate . ',';
             }
         
     ?>

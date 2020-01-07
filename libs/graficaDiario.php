@@ -24,18 +24,20 @@
     },
     
     xAxis: {
+
         title: {
             text: 'Días'
         },
         categories: [
             <?php
-            foreach ($this->promtemp as $temp) 
-            {
-                $originalDate = $temp->dia;
-                $newDate = date("d/m/Y", strtotime($originalDate));
-                echo $newDate . ',';
-            }
-        
+           
+                foreach ($this->promtemp as $temp) 
+                {
+                    $originalDate = $temp->dia;
+                    $newDate = date("d/m/Y", strtotime($originalDate));
+                    echo "'$newDate',";
+                }
+            
             ?>
         ]
     },
@@ -95,7 +97,7 @@ xAxis: {
         title: {
             text: 'Días'
         },
-        categories: [1, 2, 3, 4, 5, 6, 7, 8]
+        categories: [1.1, 2, 3, 4, 5, 6, 7, 8]
     },
 
 series: [{
