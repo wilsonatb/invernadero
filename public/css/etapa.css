@@ -1,17 +1,32 @@
-body{
+body {
     background-image: url(../img/pimenton.jpg);
     color: white;
 }
 
-section{
+#texto {
     margin: 0;
 }
 
-section h1{
+#texto h1 {
     margin: .8em;
 }
 
-.logo-home{
+.grid-etapas h1 {
+    text-align: center;
+}
+
+.boton__submit{
+    display: block;
+    margin: 2% auto;
+}
+
+.grid-item ul{
+    text-align: center;
+    /* padding-top: 10%; */
+    list-style: none;
+}
+
+.logo-home {
     position: absolute;
     max-width: 70px;
     width: 100%;
@@ -20,72 +35,168 @@ section h1{
     text-align: center;
 }
 
-#menu{
+#menu {
     background-color: rgb(50, 51, 48);
     padding: 8px;
     /* margin: 0; */
 }
 
-#menu ul li{
+#menu ul li {
     display: inline-block;
     margin-left: 16.5em;
     transition: 0.5s;
 }
 
-#menu ul li a{
+#menu ul li a {
     text-decoration: none;
     color: white;
     /* margin: 1em 2em; */
 }
 
-#menu ul li:HOVER{
+#menu ul li:HOVER {
     transform: translate(10px, 10px);
 }
 
-.grid-submenu{
+/* .grid-submenu{
     display: grid;
     margin: 10px;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-}
+} */
 
-.grid-submenu p{
+.grid-submenu p {
     margin: 0;
 }
 
-.grid-submenu .box-opcion{
+.grid-submenu .box-opcion {
     border-radius: 20px;
 }
 
-.grid-etapas{
+/* .grid-etapas{
     display: grid;
     margin: 10px;
     margin-top: 100px;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     
-}
+} */
 
-.grid-item{
-    background-color:  rgb(50, 51, 48);
+.grid-item {
+    background-color: rgb(50, 51, 48);
     padding: 1em;
     border-radius: 20px;
     justify-content: center;
 }
 
-
-.boton__etapas{
-    margin-left: 35em;
+.grid-etapas {
+    min-height: 500px;
+    margin: 0px;
+    padding: 0px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
 }
 
+#container1 {
+    margin: 4px;
+    padding: 5px;
+    -webkit-flex: 3 1 60%;
+    flex: 1 1;
+    -webkit-order: 1;
+    order: 1;
+}
 
+#container2 {
+    margin: 4px;
+    padding: 5px;
+    -webkit-flex: 1 6 20%;
+    flex: 1 6;
+    -webkit-order: 2;
+    order: 2;
+}
 
-#container1, #container2, #container3{
-    min-width: 310px;
-    width: 96%;
-    height: 400px;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 20px;
+#container3 {
+    margin: 4px;
+    padding: 5px; 
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 ;
+    -webkit-order: 3;
+    order: 3;
+}
+
+#menu, footer {
+    display: block;
+}
+
+/* ESTILOS PARA RADIO BUTTON */
+.grid-etapas input[type="radio"] {
+    display: none;
+}
+
+.grid-etapas label {
+    color: rgb(252, 249, 255);
+    padding: 5px 15px 5px 38px;
+    display: inline-block;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.grid-etapas label:hover {
+    background: rgba(250, 247, 247, 0.295);
+}
+
+.grid-etapas label::before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    /* margin-top: 2%; */
+    background: none;
+    border: 3px solid rgb(252, 249, 255);
+    border-radius: 50%;
+    position: absolute;
+    left: 17px;
+    top: 34%;
+}
+
+.grid-etapas input[type="radio"]:checked + label {
+    padding: 5px 15px;
+    background: white;
+    border-radius: 2px;
+    color: rgb(50, 51, 48);
+}
+
+.grid-etapas input[type="radio"]:checked + label:before {
+    display: none;
+}
+
+@media all and (max-width: 640px) {
+
+    .grid-etapas {
+        -webkit-flex-flow: column;
+        flex-flow: column;
+    }
+
+    #container1, #container2, #container3 {
+        /* Return them to document order */
+        -webkit-order: 0;
+        order: 0;
+    }
+
+    #container1, #container2, #container3 {
+        min-height: 100px;
+        max-height: 400px;
+    }
+
+    footer, #menu {
+        min-height: 50px;
+        max-height: 50px;
+    }
+
+    .grid-etapas label::before {
+        top: 25%;
+    }
 }

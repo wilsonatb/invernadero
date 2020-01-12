@@ -80,7 +80,7 @@ class LoginModel extends Model
         return $valor_deseado;
 
     }
-
+    /* Consulta para promedios diarios */
     public function getPromedioDiario()
     {
         $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_humed, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';

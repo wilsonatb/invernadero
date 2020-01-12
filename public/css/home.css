@@ -35,7 +35,7 @@ section h1{
 #menu ul li a{
     text-decoration: none;
     color: white;
-    font-size: 1rem;
+    /* font-size: 1rem; */
     font-weight: bold;
 }
 
@@ -84,15 +84,15 @@ section h1{
     border-radius: 20px;
 }
 
-.grid-chart{
+/* .grid-chart{
     display: grid;
     margin: 10px;
     margin-top: 100px;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-}
+} */
 
-#container1, #container2, #container3{
+/* #container1, #container2, #container3{
     min-width: 310px;
     width: 96%;
     height: 400px;
@@ -100,4 +100,86 @@ section h1{
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 20px;
+} */
+
+.grid-chart {
+    min-height: 500px;
+    margin: 0px;
+    padding: 0px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
 }
+
+
+.grid-chart > #container1 {
+    margin: 4px;
+    padding: 5px;
+    -webkit-flex: 3 1 60%;
+    flex: 1 1;
+    -webkit-order: 1;
+    order: 1;
+    }
+   
+    .grid-chart > #container2 {
+        margin: 4px;
+        padding: 5px;
+        -webkit-flex: 1 6 20%;
+        flex: 1 6;
+        -webkit-order: 2;
+        order: 2;
+    }
+  
+    .grid-chart > #container3 {
+        margin: 4px;
+        padding: 5px; 
+        -webkit-flex: 1 6 20%;
+        flex: 1 6 ;
+        -webkit-order: 3;
+        order: 3;
+    }
+
+    #menu, footer {
+        display: block;
+    }
+  
+   /* Too narrow to support three columns */
+   @media all and (max-width: 640px) {
+   
+    .grid-chart {
+     -webkit-flex-flow: column;
+             flex-flow: column;
+    }
+ 
+    .grid-chart > #container1, .grid-chart > #container2, .grid-chart > #container3 {
+     /* Return them to document order */
+     -webkit-order: 0;
+             order: 0;
+    }
+
+    .grid-chart > #container1, .grid-chart > #container2, .grid-chart > #container3 {
+        min-height: 100px;
+        max-height: 400px;
+    }
+   
+    footer, #menu {
+        min-height: 50px;
+        max-height: 50px;
+    }
+
+    .grid-submenu{
+        
+        grid-template-columns: none;
+        margin-bottom: 2px;
+    }
+
+    #btn-etapa {
+        margin-bottom: 2px;
+    }
+
+    #menu ul li a{
+        margin: 0;
+        padding: 0;
+    }
+   }
