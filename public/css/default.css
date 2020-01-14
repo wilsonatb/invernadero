@@ -87,16 +87,35 @@ h2{
 .boton__submit{
     border-radius: 30px;
     border: solid 0.5em rgb(61, 59, 59);
-    padding: .4em 1em;
+    padding: .4em 0.5em;
     background-color: rgb(71, 71, 71);
     color: white;
     transition: 1s;   
+    cursor: pointer;
 }
+
+
 
 .boton__submit:HOVER{
     background-color: #36D94F;
 }
 
+.eliminar:HOVER {
+    background-color: red;
+}
+
+.disabled {
+    color: black;
+    cursor: inherit;
+}
+
+.disabled:HOVER {
+    background-color: rgb(71, 71, 71);
+}
+
+.center {
+    text-align: center;
+}
 /* *{
     padding: 0;
     margin: 0;

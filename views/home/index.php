@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/home.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/media.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/normalize.css">
-    <link type="text/css" href="<?php echo constant('URL'); ?>public\css\ui-darkness\jquery-ui-1.8.23.custom.css" rel="Stylesheet" />
+    <link type="text/css" href="<?php echo constant('URL'); ?>public\css\ui-darkness\jquery-ui-1.8.23.custom.css" 
+    rel="Stylesheet" />
+    
 
 
 
@@ -26,13 +28,18 @@
         <a href="<?php echo constant('URL'); ?>main"><img src="<?php echo constant('URL'); ?>public/img/logo-unexpo.png" alt=""></a>
     </div>
 
-    <div id="menu">
+    <nav id="menu">
         <ul>
             <li><a href="<?php echo constant('URL'); ?>login/inicio">Inicio</a></li>
             <li><a href="<?php echo constant('URL'); ?>admin">Administrador</a></li>
             <li><a href="<?php echo constant('URL'); ?>logout">Cerrar sesión</a></li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </li>
         </ul>
-    </div>
+    </nav>
 
     <section>
         <h1>Bienvenido <?php echo $this->usuarioActual; ?>, la etapa selecionada es <?php echo $this->configActual; ?> </h1>
@@ -71,6 +78,9 @@
     include 'libs/' . $this->graficas . '.php';
     ?>
 
+    
+
+    
     <script src="<?php echo constant('URL'); ?>public\js\jquery-1.8.0.min.js"></script>
     <script src="<?php echo constant('URL'); ?>public/js/jquery-ui-1.8.23.custom.min.js"></script>
     <script src="<?php echo constant('URL'); ?>public/js/jquery.ui.datepicker-es.js"></script>

@@ -20,7 +20,9 @@ class LoginModel extends Model
         if($row == true) //si encuentra una fila entonces existe usuario
         {
             $rol = $row[1];
+            $nombre = $row[2];
             $_SESSION['rol'] = $rol;
+            $_SESSION['nombre'] = $nombre;
             return true;
         }else {
             return false;

@@ -23,7 +23,7 @@ section h1{
 #menu{
     background-color: rgba(50, 51, 48, 0.973);
     padding: 8px;
-    /* margin: 0; */
+    height: 65px;
 }
 
 #menu ul li{
@@ -57,6 +57,8 @@ section h1{
 .grid-submenu p{
     margin: 0;
 }
+
+
 
 /* .grid-submenu span{
     font-weight: bold;
@@ -143,26 +145,32 @@ section h1{
     #menu, footer {
         display: block;
     }
+
+    
+
+.highcharts-credits {
+    display: none;
+}
   
-   /* Too narrow to support three columns */
-   @media all and (max-width: 640px) {
-   
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+
     .grid-chart {
-     -webkit-flex-flow: column;
-             flex-flow: column;
-    }
- 
-    .grid-chart > #container1, .grid-chart > #container2, .grid-chart > #container3 {
-     /* Return them to document order */
-     -webkit-order: 0;
-             order: 0;
+        -webkit-flex-flow: column;
+                flex-flow: column;
     }
 
     .grid-chart > #container1, .grid-chart > #container2, .grid-chart > #container3 {
-        min-height: 100px;
-        max-height: 400px;
+        /* Return them to document order */
+        -webkit-order: 0;
+                order: 0;
     }
-   
+
+    .grid-chart > #container1, .grid-chart > #container2, .grid-chart > #container3 {
+        min-height: 300px;
+        max-height: 450px;
+    }
+
     footer, #menu {
         min-height: 50px;
         max-height: 50px;
@@ -182,4 +190,8 @@ section h1{
         margin: 0;
         padding: 0;
     }
-   }
+
+}
+
+
+   

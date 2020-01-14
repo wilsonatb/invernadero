@@ -13,9 +13,19 @@ class UserSession
         $_SESSION['user'] = $user;
     }
 
+    public function setName($name)
+    {
+        $_SESSION['nombre'] = $name;
+    }
+
     public function getCurrentUser() //retorna el usuario de la session
     {
         return $_SESSION['user'];
+    }
+
+    public function getName() //retorna el usuario de la session
+    {
+        return $_SESSION['nombre'];
     }
 
     public function closeSession()

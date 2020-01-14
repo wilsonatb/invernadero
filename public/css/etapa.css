@@ -15,12 +15,12 @@ body {
     text-align: center;
 }
 
-.boton__submit{
+.boton__submit {
     display: block;
     margin: 2% auto;
 }
 
-.grid-item ul{
+.grid-item ul {
     text-align: center;
     /* padding-top: 10%; */
     list-style: none;
@@ -118,14 +118,15 @@ body {
 
 #container3 {
     margin: 4px;
-    padding: 5px; 
+    padding: 5px;
     -webkit-flex: 1 6 20%;
-    flex: 1 6 ;
+    flex: 1 6;
     -webkit-order: 3;
     order: 3;
 }
 
-#menu, footer {
+#menu,
+footer {
     display: block;
 }
 
@@ -162,14 +163,14 @@ body {
     top: 34%;
 }
 
-.grid-etapas input[type="radio"]:checked + label {
+.grid-etapas input[type="radio"]:checked+label {
     padding: 5px 15px;
     background: white;
     border-radius: 2px;
     color: rgb(50, 51, 48);
 }
 
-.grid-etapas input[type="radio"]:checked + label:before {
+.grid-etapas input[type="radio"]:checked+label:before {
     display: none;
 }
 
@@ -180,18 +181,23 @@ body {
         flex-flow: column;
     }
 
-    #container1, #container2, #container3 {
+    #container1,
+    #container2,
+    #container3 {
         /* Return them to document order */
         -webkit-order: 0;
         order: 0;
     }
 
-    #container1, #container2, #container3 {
+    #container1,
+    #container2,
+    #container3 {
         min-height: 100px;
         max-height: 400px;
     }
 
-    footer, #menu {
+    footer,
+    #menu {
         min-height: 50px;
         max-height: 50px;
     }
@@ -199,4 +205,33 @@ body {
     .grid-etapas label::before {
         top: 25%;
     }
+}
+
+
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    border-collapse: collapse;
+    border-radius: 10px;
+    width: 85%;
+    margin: 0px auto;
+}
+
+th {
+    background: rgb(50, 51, 48);
+    border-top: 4px solid #1a1919;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    color: white;
+}
+
+td {
+    background: #515152;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    color: white;
+    border-top: 1px solid transparent;
+}
+
+tr:hover td {
+    background: #797a81;
+    color: rgb(255, 255, 255);
 }
