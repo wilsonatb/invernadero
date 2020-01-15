@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script|Playfair+Display|Source+Sans+Pro"> -->
+    <title>Invernadero Unexpo | Invernadero automatizado</title>
+    <meta name="description" content="Invernadero Unexpo es un sitio Web destinado al control y monitorización de un invernadero de
+    pimenton">
+    <meta name="author" content="Wilson Abelardo Tovar">
+    <meta name="keywords" content="unexpo,electrónica,ingeniería,invernadero online,Barquisimeto,pimenton,unexpo barquisimeto,control,monitorizacion">
 
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/default.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/etapa.css">
@@ -16,13 +19,13 @@
 
 <body>
     <div class="logo-home">
-        <a href="#"><img src="<?php echo constant('URL'); ?>public/img/logo-unexpo.png" alt=""></a>
+        <a href="<?php echo constant('URL'); ?>main"><img src="<?php echo constant('URL'); ?>public/img/logo-unexpo.png" alt=""></a>
     </div>
 
     <div id="menu">
         <ul>
             <li><a href="<?php echo constant('URL'); ?>login/inicio">Inicio</a></li>
-            <li><a href="<?php echo constant('URL'); ?>admin">administrador</a></li>
+            <li><a href="<?php echo constant('URL'); ?>admin">Administrador</a></li>
             <li><a href="<?php echo constant('URL'); ?>logout">Cerrar sesión</a></li>
         </ul>
     </div>
@@ -38,7 +41,7 @@
             <tr>
                 <th>Id</th>
                 <th>Rol</th>
-                <th>Nombre</th>
+                <th>Nombre y Apellido</th>
                 <th>Username</th>
                 <th>Contraseña</th>
                 <th></th>
@@ -65,6 +68,34 @@
         </tbody>
     </table>
 
+    <form class="formulario" action="<?php echo constant('URL'); ?>admin/registrarUsuario" method="post" autocomplete="off">
+        <div>
+            <?= $this->mensajeRegistro; ?>
+        </div>
+        <p>
+            <label for="rol" >Rol</label><br>
+            <select name="rol" class="rol" required id="">
+                <option value="admin">Admin</option> 
+                <option value="user" >User</option>
+            </select>
+        </p>
+        <p>
+            <label for="nombre">Nombre y Apellido</label><br>
+            <input type="text" name="nombre" id="" required onKeyUp="this.value=this.value.toUpperCase();" placeholder="Nombre y Apellido">
+        </p>
+        <p>
+            <label for="username">Username</label><br>
+            <input type="text" name="username" id="" required placeholder="Username">
+        </p>
+        <p>
+            <label for="password">Contraseña</label><br>
+            <input type="text" name="password" id="" required placeholder="Contraseña">
+        </p>
+        <p>
+            <input type="submit" class="boton__submit" value="Registrar nuevo usuario">
+        </p>
+
+    </form>
 
     <footer class="footer">
 

@@ -65,6 +65,7 @@ class AdminModel extends Model
 
         try {
             $query->execute([
+                'id'       => $item['id'],
                 'rol'       => $item['rol'],
                 'nombre'    => $item['nombre'],
                 'username'  => $item['username'],
@@ -87,6 +88,42 @@ class AdminModel extends Model
             return false;
         }
     }
+
+    public function insert($datos)
+    {
+    
+            $query = $this->db->connect()->prepare('SELECT * FROM usuarios WHERE username = :user');
+            $query->execute(['user' => $datos['username']]);
+    
+            $row = $query->fetch(PDO::FETCH_NUM);
+
+            if($row) {
+                return false;
+            } else {
+                //insertar datos en la base de datos
+                try {
+                    $query = $this->db->connect()->prepare('INSERT INTO usuarios (rol, nombre, username, password) VALUES (:rol, :nombre, :username, :password)');
+                    $query->execute(['rol' => $datos['rol'], 'nombre' => $datos['nombre'], 'username' => $datos['username'], 'password' => $datos['password']]);
+                    return true;
+                } catch (PDOException $e) {
+                    return false;
+                }
+            }
+
+        
+        /* try 
+        {
+            $query = $this->db->connect()->prepare('INSERT INTO usuarios (rol, nombre, username, password) VALUES (:rol, :nombre, :username, :password)');
+            $query->execute(['rol' => $datos['rol'], 'nombre' => $datos['nombre'], 'username' => $datos['username'], 'password' => $datos['password']]);
+            return true;
+        } catch (PDOException $e) 
+        {
+            return false;
+        } */
+        
+    }
+
+
 }
   
 ?>

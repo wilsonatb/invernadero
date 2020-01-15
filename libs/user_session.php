@@ -25,7 +25,22 @@ class UserSession
 
     public function getName() //retorna el usuario de la session
     {
-        return $_SESSION['nombre'];
+        if(isset($_SESSION['nombre'])){
+            return $_SESSION['nombre'];
+        } else {
+            return ;
+        }
+        
+    }
+
+    public function getRol() //retorna el usuario de la session
+    {
+        if(isset($_SESSION['rol'])){
+            return $_SESSION['rol'];
+        } else {
+            return ;
+        }
+        
     }
 
     public function closeSession()

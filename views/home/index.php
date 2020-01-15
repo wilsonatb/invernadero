@@ -42,7 +42,7 @@
     </nav>
 
     <section>
-        <h1>Bienvenido <?php echo $this->usuarioActual; ?>, la etapa selecionada es <?php echo $this->configActual; ?> </h1>
+        <h1>Bienvenido <?php echo $_SESSION['nombre']; ?>, la etapa selecionada es <?php echo $this->configActual; ?> </h1>
     </section>
 
     <div class="grid-submenu">

@@ -6,8 +6,9 @@ class Admin extends Controller
     {
         parent::__construct();
         $this->view->usuarioActual = "";
-        
+        $this->view->mensajeRegistro = "";
         $this->view->usuarios = [];
+        
     }
 
     function render()
@@ -16,40 +17,49 @@ class Admin extends Controller
         $nombre = $userSession->getName();
         $this->view->usuarioActual = $nombre;
 
+        $rol = $userSession->getRol();
+
         $usuarios = $this->model->get();
         $this->view->usuarios = $usuarios;
-        $this->view->render('admin/index');
-        /* $userSession = new UserSession();
-        $user = $userSession->getCurrentUser();
-        if(isset($user[1]))
+        /* $this->view->render('admin/index'); */
+        
+        if(isset($nombre))
         {
-            switch ($user[1]) {
-                case 1:
+            switch ($rol) {
+                case 'admin':
                     $this->view->render('admin/index');
                     break;
                 
-                case 2:
-                    $this->view->render('home/index');
+                case 'user':
+                    header('location: ' . constant('URL') . 'login/inicio');
                     break;
             }
-        } */
+        }else {
+            $this->view->render('main/index');
+        }
     }
 
     function verUsuario($param = null)
     {
+        $userSession = new UserSession(); // se crea un objeto de userSession
+        $nombre = $userSession->getName();
+        $this->view->usuarioActual = $nombre;
+        
         $idUsuario = $param[0];
         $usuario = $this->model->getById($idUsuario);
        
-        session_start();
         $_SESSION['id_verUsuario'] = $usuario->id;       
         $this->view->usuario = $usuario;
         $this->view->mensaje = "";
         $this->view->render('admin/detalle');
     }
 
-    function actualizarusuario()
+    function actualizarUsuario()
     {
-        session_start(); //para evitar que el usuaria haga algum cambio el valor es sacado de una session
+        $userSession = new UserSession(); // se crea un objeto de userSession
+        $nombre = $userSession->getName();
+        $this->view->usuarioActual = $nombre;
+
         $id = $_SESSION['id_verUsuario'];
         $rol       = $_POST['rol'];
         $nombre    = $_POST['nombre'];        
@@ -75,7 +85,7 @@ class Admin extends Controller
             //error
             $this->view->mensaje = "No se pudo actualizar el usuario";
         }
-
+        
         $this->view->render('admin/detalle');
     }
 
@@ -99,7 +109,29 @@ class Admin extends Controller
         echo $mensaje;
     }
 
+    function registrarUsuario()
+    {
+        $rol = $_POST['rol'];
+        $nombre = $_POST['nombre'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
+        $mensaje = "";
+
+        if($this->model->insert(['rol' => $rol, 'nombre' => $nombre, 'username' => $username, 'password' => $password]))
+        {
+            $mensaje = "Nuevo usuario creado";
+        }
+        else
+        {
+            $mensaje = "El usuario ya existe";
+        }
+
+        $this->view->mensajeRegistro = $mensaje;
+        $this->render();//llamamos a la vista
+
+        //se hace la validacion de que el metodo funciono y se muestra el mensaje, en caso de que no funcionara dentro de el metodo insert esta un mensaje de errror 
+    }
 }
 
 ?>

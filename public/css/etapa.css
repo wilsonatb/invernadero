@@ -11,6 +11,10 @@ body {
     margin: .8em;
 }
 
+section h1 {
+    margin: .8em;
+}
+
 .grid-etapas h1 {
     text-align: center;
 }
@@ -130,6 +134,17 @@ footer {
     display: block;
 }
 
+#respuesta {
+    background: rgb(50, 51, 48);
+    margin: 5px auto;
+    padding: 6px;
+    border-radius: 9px;
+}
+
+.rol {
+    width: 100%;
+}
+
 /* ESTILOS PARA RADIO BUTTON */
 .grid-etapas input[type="radio"] {
     display: none;
@@ -174,6 +189,42 @@ footer {
     display: none;
 }
 
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    border-collapse: collapse;
+    border-radius: 10px;
+    width: 85%;
+    margin: 0px auto;
+}
+
+th {
+    background: rgb(50, 51, 48);
+    border-top: 4px solid #1a1919;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    color: white;
+}
+
+td {
+    background: #515152;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    color: white;
+    border-top: 1px solid transparent;
+}
+
+tr:hover td {
+    background: #797a81;
+    color: rgb(255, 255, 255);
+}
+
+.formulario {
+    margin: 0px auto;
+    background: rgb(50, 51, 48);
+    padding: 1%;
+    margin-top: 5%;
+    border-radius: 10px;
+    text-align: center;
+}
+
 @media all and (max-width: 640px) {
 
     .grid-etapas {
@@ -205,33 +256,12 @@ footer {
     .grid-etapas label::before {
         top: 25%;
     }
+
+    table {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
 }
 
 
 
-table {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    border-collapse: collapse;
-    border-radius: 10px;
-    width: 85%;
-    margin: 0px auto;
-}
-
-th {
-    background: rgb(50, 51, 48);
-    border-top: 4px solid #1a1919;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    color: white;
-}
-
-td {
-    background: #515152;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    color: white;
-    border-top: 1px solid transparent;
-}
-
-tr:hover td {
-    background: #797a81;
-    color: rgb(255, 255, 255);
-}

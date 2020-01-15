@@ -94,7 +94,9 @@ h2{
     cursor: pointer;
 }
 
-
+input {
+    text-align: center;
+}
 
 .boton__submit:HOVER{
     background-color: #36D94F;
