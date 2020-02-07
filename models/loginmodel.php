@@ -87,6 +87,7 @@ class LoginModel extends Model
     {
         $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_humed, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';
 
+
         $items = [];
 
         try 
@@ -105,6 +106,36 @@ class LoginModel extends Model
             }
             
             /* echo '<pre>'; var_dump($items); echo '</pre>'; */
+            return $items;
+        } 
+        catch (PDOException $e) 
+        {
+            return [];
+        }
+    }
+
+    public function getPromedioMensual()
+    {
+        $sql = 'SELECT MONTHNAME(fecha) AS Mes, YEAR(fecha) AS Ano, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_humed, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 MONTH) AND DATE_SUB(CURDATE(), INTERVAL -1 MONTH) GROUP BY Ano, Mes';        
+
+
+        $items = [];
+
+        try 
+        {
+            $query = $this->db->connect()->query($sql);
+
+            while($row = $query->fetch())
+            {
+                $item = new AvgTempDiario();
+                $item->dia = $row['Mes'];
+                $item->promedioTemp = $row['Promedio_Temp'];
+                $item->promedioHR = $row['Promedio_humed'];
+                $item->total = $row['total'];
+
+                array_push($items, $item);// ingresa nueva informacion al arreglo items
+            }
+            
             return $items;
         } 
         catch (PDOException $e) 

@@ -24,6 +24,7 @@
                 <div class="logo">
                     <a href="#"><img src="<?php echo constant('URL'); ?>public/img/logo-unexpo.png" alt=""></a>
                 </div>
+                <h1 style="text-align: center;font-size: 4em;">INVERNADERO UNEXPO</h1>
                     <div id="menu">
                         <ul>
                             <li>
@@ -41,7 +42,7 @@
                                 <a href="<?php echo constant('URL'); ?>login/inicio">
                                     <div>
                                         <h1>Ingresar</h1>
-                                        <h2>Es hora de trabajar!!</h2>
+                                        <h2>¡Es hora de trabajar!</h2>
                                         <p>
                                             <a href="<?php echo constant('URL'); ?>login" class="btn btn-verde">VER</a>
                                         </p>

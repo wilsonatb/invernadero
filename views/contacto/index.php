@@ -25,7 +25,7 @@
     </div>
     <div class="container">  
     <form id="contact" action="<?php echo constant('URL'); ?>contacto/email" method="post">
-        <h3>Contactanos!!</h3>
+        <h3>¡Contactanos!</h3>
         <h3>
             <?php
                 if(isset($this->mensaje)){

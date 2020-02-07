@@ -68,6 +68,8 @@ class Login extends Controller{
           $promedios = $this->model->getPromedioDiario();
           $this->view->promedios = $promedios;
           
+          $promedios_mes = $this->model->getPromedioMensual();
+          $this->view->promedios_mes = $promedios_mes;
           
 
           $selected = $this->model->getConfiguracion();
