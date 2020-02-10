@@ -119,11 +119,13 @@ body{
 }
 
 #main-container #points-info div{
-    background-color: #85c770;
+    background-color: #1b1818;
     width: 80%;
     height: 87%;
+    color: white;
     margin: 3% auto;
     padding: 13px;
     text-align: center;
     box-sizing: border-box;
+    border-radius: 20px;
 }

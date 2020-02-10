@@ -31,49 +31,50 @@
     </div>
 
     <section>
-        <h1> Selecciona una etapa</h1>
+        <h1 style="text-align: center"><strong>Selecciona una etapa</strong></h1>
     </section>
 
 
 
     <form action="<?php echo constant('URL'); ?>login/inicio" method="post">
         <div class="grid-etapas">
-            <div id="container1" class=grid-item>
+            <div id="container1" class=grid-item style="text-align: center;">
 
                 <h1><input type="radio" name="opciones" value="Germinación" id="Germinación">
                     <label for="Germinación">Germinación</label>
                 </h1>
                 <ul>
-                    <li>Temperatura: 26ºC</li>
-                    <li>Humedad Relativa: 60%</li>
-                    <li>Humedad Suelo: 60%</li>
+                    <li>Temperatura: 20ºC-26ºC</li>
+                    <li>Humedad Relativa: 40%-65%</li>
+                    <li>Humedad Suelo: 30%-50%</li>
                 </ul>
+                <img class="img" src="<?php echo constant('URL'); ?>public\img\semilla.jpg" alt="germinacion">
             </div>
 
-            <div id="container2" class=grid-item>
+            <div id="container2" class=grid-item style="text-align: center;">
 
                 <h1><input type="radio" name="opciones" value="Crecimiento vegetativo" id="Crecimiento vegetativo">
                     <label for="Crecimiento vegetativo">Crecimiento vegetativo</label>
                 </h1>
                 <ul>
-                    <li>Temperatura: 26ºC</li>
-                    <li>Humedad Relativa: 60%</li>
-                    <li>Humedad Suelo: 60%</li>
+                    <li>Temperatura: 23ºC-26ºC</li>
+                    <li>Humedad Relativa: 50%-70%</li>
+                    <li>Humedad Suelo: 30%-70%</li>
                 </ul>
-
+                <img class="img"src="<?php echo constant('URL'); ?>public\img\crecimiento.jpg" alt="crecimiento">
             </div>
 
-            <div id="container3" class=grid-item>
+            <div id="container3" class=grid-item style="text-align: center;">
 
                 <h1><input type="radio" name="opciones" value="Floración y Fructificación" id="Floración y Fructificación"> 
                     <label for="Floración y Fructificación">Floración y Fructificación</label>
                 </h1>
                 <ul>
-                    <li>Temperatura: 26ºC</li>
-                    <li>Humedad Relativa: 60%</li>
-                    <li>Humedad Suelo: 60%</li>
+                    <li>Temperatura: 25ºC-28ºC</li>
+                    <li>Humedad Relativa: 50%-70%</li>
+                    <li>Humedad Suelo: 50-70%</li>
                 </ul>
-
+                <img class="img" src="<?php echo constant('URL'); ?>public\img\floracion.jpg" alt="floracion">
             </div>
         </div>
 

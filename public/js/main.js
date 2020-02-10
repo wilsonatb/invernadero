@@ -9,7 +9,7 @@ botones.forEach(boton => {
 
         if(confirm){
             //solicitud AJAx
-            httpRequest("http://invernaderounexpo.dx.am/admin/eliminarUsuario/" + id, function(){
+            httpRequest("http://localhost/MVCnuevo/admin/eliminarUsuario/" + id, function(){
                 //console.log(this.responseText);
                 document.querySelector("#respuesta").innerHTML = this.responseText;
 

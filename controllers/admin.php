@@ -31,7 +31,10 @@ class Admin extends Controller
                     break;
                 
                 case 'user':
-                    header('location: ' . constant('URL') . 'login/inicio');
+                    echo "<script languaje='Javascript'>
+                    alert('¡No tienes permiso!');
+                    window.location.replace('http://localhost/MVCnuevo/login/inicio');
+                    </script>";
                     break;
             }
         }else {
