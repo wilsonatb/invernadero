@@ -225,7 +225,20 @@ tr:hover td {
     text-align: center;
 }
 
+.img{
+    border-radius: 10px;
+    transition: transform .2s;
+}
+
+.img:hover {
+    transform: scale(1.1);
+}
+
 @media all and (max-width: 640px) {
+
+    .img:hover {
+        transform: scalex(1.1);
+    }
 
     .grid-etapas {
         -webkit-flex-flow: column;

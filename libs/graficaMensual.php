@@ -29,7 +29,8 @@
 
                 foreach ($this->promedios_mes as $promedio) {
                     $originalDate = $promedio->dia;
-                    echo "'$originalDate',";
+                    $ano = $promedio->ano;
+                    echo "'$originalDate/$ano',";
                 }
 
                 ?>
@@ -95,7 +96,8 @@
 
                 foreach ($this->promedios_mes as $promedio) {
                     $originalDate = $promedio->dia;
-                    echo "'$originalDate',";
+                    $ano = $promedio->ano;
+                    echo "'$originalDate/$ano',";
                 }
 
                 ?>

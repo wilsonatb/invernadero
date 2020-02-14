@@ -116,7 +116,7 @@ class LoginModel extends Model
 
     public function getPromedioMensual()
     {
-        $sql = 'SELECT MONTHNAME(fecha) AS Mes, YEAR(fecha) AS Ano, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_humed, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 MONTH) AND DATE_SUB(CURDATE(), INTERVAL -1 MONTH) GROUP BY Ano, Mes';        
+        $sql = 'SELECT MONTH(fecha) AS Mes, YEAR(fecha) AS Ano, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_HR, AVG(humedad_suelo) AS Promedio_humedad, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 MONTH) AND DATE_SUB(CURDATE(), INTERVAL -1 MONTH) GROUP BY Ano, Mes';        
 
 
         $items = [];
@@ -129,8 +129,10 @@ class LoginModel extends Model
             {
                 $item = new AvgTempDiario();
                 $item->dia = $row['Mes'];
+                $item->ano = $row['Ano'];
                 $item->promedioTemp = $row['Promedio_Temp'];
-                $item->promedioHR = $row['Promedio_humed'];
+                $item->promedioHR = $row['Promedio_HR'];
+                $item->promedioHum = $row['Promedio_humedad'];
                 $item->total = $row['total'];
 
                 array_push($items, $item);// ingresa nueva informacion al arreglo items

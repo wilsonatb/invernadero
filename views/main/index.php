@@ -9,6 +9,8 @@
     pimenton">
     <meta name="author" content="Wilson Abelardo Tovar">
     <meta name="keywords" content="unexpo,electrónica,ingeniería,invernadero online,Barquisimeto,pimenton,unexpo barquisimeto,control,monitorizacion">
+    <meta name="robots" content="index,follow">
+    <meta name="google-site-verification" content="GvrXfa8GvnJNA_HeDLVFQW4_uaFgvafMFfRtVjrkNCM" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script|Playfair+Display|Source+Sans+Pro">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/main.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/media.css">
