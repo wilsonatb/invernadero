@@ -10,21 +10,19 @@ class ArduinoModel extends Model
     /* private $totalVotes;//conteo de numero de votos */
     private $temperatura;
     private $humedad;
-    private $fechaTemp;
-    private $etapa;
-    private $valor1;
-    private $valor2;
+    private $humedad_suelo;
 
-    public function setParametros($parametro1, $parametro2)//eta fuincion guarda la opcion que elegi
+    public function setParametros($parametro1, $parametro2, $parametro3)//eta fuincion guarda la opcion que elegi
     {
         $this->temperatura = $parametro1;
         $this->humedad = $parametro2;
+        $this->humedad_suelo = $parametro3;
     }
 
     public function envio()//enviar los datos a la bd
     {
-        $query = $this->db->connect()->prepare('INSERT INTO `parametros`(`temperatura`, `humedad`) VALUES (:temp, :hum)');
-        $query->execute(['temp' => $this->temperatura, 'hum' => $this->humedad]);
+        $query = $this->db->connect()->prepare('INSERT INTO `parametros`(`temperatura`, `humedad`, `humedad_suelo`) VALUES (:temp, :hum, :hum_suelo)');
+        $query->execute(['temp' => $this->temperatura, 'hum' => $this->humedad, 'hum_suelo' => $this->humedad_suelo]);
     }
 
     public function getTemp()//extraer los datos de la bd
@@ -34,15 +32,8 @@ class ArduinoModel extends Model
         $id_maximo = $query->fetch(PDO::FETCH_OBJ)->id_max;
 
         //Con el id_maximno obtenido se hace una busqueda en la tabla donde la humedad se la mas actual
-        $query = $this->db->connect()->query('SELECT `humedad` FROM `parametros` WHERE id = ' . $id_maximo);
-        $valor_deseado = $this->humedad = $query->fetch(PDO::FETCH_OBJ)->humedad;
-
-        //Con el id_maximno obtenido se hace una busqueda en la tabla donde la humedad se la mas actual
         $query = $this->db->connect()->query('SELECT `temperatura` FROM `parametros` WHERE id = ' . $id_maximo);
         $y = $this->temperatura = $query->fetch(PDO::FETCH_OBJ)->temperatura;
-
-        $query = $this->db->connect()->query('SELECT UNIX_TIMESTAMP(fecha) AS fechaTemp FROM parametros WHERE id = ' . $id_maximo);
-        $fechaUnix = $this->fechaTemp = $query->fetch(PDO::FETCH_OBJ)->fechaTemp;
 
         // setea una cabecera JSON
         header("Content-type: text/json");
@@ -66,7 +57,22 @@ class ArduinoModel extends Model
         
         $x = (time() - (60 * 60 * 4)) * 1000;
         
-        /* $y = rand(0, 100); */
+        // Crea un arreglo PHP y al hacer el echo parece un JSON
+        $ret = array($x, $y);
+        echo json_encode($ret);
+    }
+
+    public function getHumdSuelo()
+    {
+        $query = $this->db->connect()->query('SELECT MAX(id) AS id_max FROM `parametros`');
+        $id_maximo = $query->fetch(PDO::FETCH_OBJ)->id_max;
+
+        //Con el id_maximno obtenido se hace una busqueda en la tabla donde la humedad se la mas actual
+        $query = $this->db->connect()->query('SELECT `humedad_suelo` FROM `parametros` WHERE id = ' . $id_maximo);
+        $y = $this->humedad_suelo = $query->fetch(PDO::FETCH_OBJ)->humedad_suelo;
+       
+        $x = (time() - (60 * 60 * 4)) * 1000;
+        
         // Crea un arreglo PHP y al hacer el echo parece un JSON
         $ret = array($x, $y);
         echo json_encode($ret);
@@ -87,44 +93,5 @@ class ArduinoModel extends Model
 
         echo $valor_deseado . '*' . $valor_deseado2 . '*';
     }
-
-    /* public function getPromedioDiarioTemp()
-    {
-        $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';
-
-        $items = [];
-
-        try 
-        {
-            $query = $this->db->connect()->query($sql);
-
-            while($row = $query->fetch())
-            {
-                $item = new AvgTempDiario();
-                $item->dia = $row['Dia'];
-                $item->promedio = $row['Promedio_Temp'];
-                $item->total = $row['total'];
-
-                array_push($items, $item);// ingresa nueva informacion al arreglo items
-            }
-            
-            echo '<pre>'; var_dump($items); echo '</pre>';
-            return $items;
-        } 
-        catch (PDOException $e) 
-        {
-            return [];
-        }
-    } */
-
-
-    public function getTotal($parametro, $fechaInicio, $fechaFin)
-    {
-        $query = $this->db->connect()->query('SELECT SUM(' . $parametro . ') AS votos_totales FROM lenguajes WHERE fecha BETWEEM ' . $fechaInicio . ' AND ' . $fechaFin);
-        $this->totalVotes = $query->fetch(PDO::FETCH_OBJ)->votos_totales;
-        return $this->totalVotes;
-    }   
-
-    
 }
  ?>

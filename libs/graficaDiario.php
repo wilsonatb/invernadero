@@ -2,7 +2,7 @@
     Highcharts.chart('container1', {
 
         title: {
-            text: 'Tempratura ultimos 7 días'
+            text: 'Tempratura ultimos 10 días'
         },
 
         subtitle: {
@@ -70,7 +70,7 @@
     Highcharts.chart('container2', {
 
         title: {
-            text: 'HR ultimos 7 días'
+            text: 'HR ultimos 10 días'
         },
 
         subtitle: {
@@ -137,7 +137,7 @@
     Highcharts.chart('container3', {
 
         title: {
-            text: 'Humedad ultimos 7 días'
+            text: 'Humedad ultimos 10 días'
         },
 
         subtitle: {
@@ -154,7 +154,17 @@
             title: {
                 text: 'Días'
             },
-            categories: [1, 2, 3, 4, 5, 6, 7, 8]
+            categories: [
+                <?php
+
+                foreach ($this->promedios as $promedio) {
+                    $originalDate = $promedio->dia;
+                    $newDate = date("d/m/Y", strtotime($originalDate));
+                    echo "'$newDate',";
+                }
+
+                ?>
+            ]
         },
 
         legend: {
@@ -165,7 +175,14 @@
 
         series: [{
             name: 'Humedad Suelo(%)',
-            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+            data: [
+                <?php
+                foreach ($this->promedios as $promedio) {
+                    echo  $promedio->promedioHum . ',';
+                }
+
+                ?>
+            ]
         }],
 
         responsive: {

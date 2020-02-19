@@ -38,7 +38,7 @@
                 // Formato de datos que se espera en la respuesta
                 dataType: "json",
                 // URL a la que se enviará la solicitud Ajax
-                url: '<?php echo constant('URL'); ?>arduino/datosGraficarHumd',
+                url: '<?php echo constant('URL'); ?>arduino/datosGraficarAire',
                 success: function(point) {
                     var series = chartHumed.series[0],
                         shift = series.data.length > 10; // shift if the series is   
@@ -60,7 +60,7 @@
                 // Formato de datos que se espera en la respuesta
                 dataType: "json",
                 // URL a la que se enviará la solicitud Ajax
-                url: '<?php echo constant('URL'); ?>arduino/datosGraficarAire',
+                url: '<?php echo constant('URL'); ?>arduino/datosGraficarHumd',
                 success: function(point) {
                     var series = chartAire.series[0],
                         shift = series.data.length > 10; // shift if the series is   
@@ -148,7 +148,7 @@
                     }
                 },
                 title: {
-                    text: 'Grafica tiempo real 3'
+                    text: 'Humedad Suelo'
                 },
                 xAxis: {
                     type: 'datetime',
@@ -164,7 +164,7 @@
                     }
                 },
                 series: [{
-                    name: 'Valores aleatorios',
+                    name: 'HS(%)',
                     data: []
                 }]
             })

@@ -85,7 +85,7 @@ class LoginModel extends Model
     /* Consulta para promedios diarios */
     public function getPromedioDiario()
     {
-        $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_humed, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';
+        $sql = 'SELECT CAST(fecha AS DATE) AS Dia, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_humed, AVG(humedad_suelo) AS Promedio_humed_suelo, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND DATE_SUB(CURDATE(), INTERVAL -1 DAY) GROUP BY CAST(fecha AS DATE)';
 
 
         $items = [];
@@ -100,6 +100,7 @@ class LoginModel extends Model
                 $item->dia = $row['Dia'];
                 $item->promedioTemp = $row['Promedio_Temp'];
                 $item->promedioHR = $row['Promedio_humed'];
+                $item->promedioHum = $row['Promedio_humed_suelo'];
                 $item->total = $row['total'];
 
                 array_push($items, $item);// ingresa nueva informacion al arreglo items
@@ -116,7 +117,7 @@ class LoginModel extends Model
 
     public function getPromedioMensual()
     {
-        $sql = 'SELECT MONTH(fecha) AS Mes, YEAR(fecha) AS Ano, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_HR, AVG(humedad_suelo) AS Promedio_humedad, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 10 MONTH) AND DATE_SUB(CURDATE(), INTERVAL -1 MONTH) GROUP BY Ano, Mes';        
+        $sql = 'SELECT MONTH(fecha) AS Mes, YEAR(fecha) AS Ano, AVG(temperatura) AS Promedio_Temp, AVG(humedad) AS Promedio_HR, AVG(humedad_suelo) AS Promedio_humedad, COUNT(id) AS total FROM parametros WHERE CAST(fecha AS DATE) BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 MONTH) AND DATE_SUB(CURDATE(), INTERVAL -1 MONTH) GROUP BY Ano, Mes';        
 
 
         $items = [];

@@ -32,7 +32,7 @@ class Arduino extends Controller
 
     function datosGraficarHumd()
     {
-      $this->model->getHumd();
+      $this->model->getHumdSuelo();
     }
 
     function datosGraficarAire()
