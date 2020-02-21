@@ -86,12 +86,8 @@ class ArduinoModel extends Model
         $query = $this->db->connect()->query('SELECT `etapa` FROM `configuracion` WHERE id = ' . $id_maximo);
         $valor_deseado = $this->etapa = $query->fetch(PDO::FETCH_OBJ)->etapa;
 
-        
-        $query = $this->db->connect()->query('SELECT `valor1` FROM `configuracion` WHERE id = ' . $id_maximo);
-        $valor_deseado2 = $this->valor1 = $query->fetch(PDO::FETCH_OBJ)->valor1;
 
-
-        echo $valor_deseado . '*' . $valor_deseado2 . '*';
+        echo $valor_deseado . '*';
     }
 }
  ?>

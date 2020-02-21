@@ -15,7 +15,7 @@ class Arduino extends Controller
 
       if(isset($_GET['temp']) && isset($_GET['temp']))
       {
-          $this->model->setParametros($_GET['temp'], $_GET['humed']);
+          $this->model->setParametros($_GET['temp'], $_GET['humed'], $_GET['humedad_suelo']);
           $this->model->envio();
       }
 
